@@ -1,5 +1,10 @@
+<script lang="ts">
+    import '../../app.css';
+    let { children } = $props();
+</script>
+
 <div class="container mx-auto p-4">
-    <nav class="mb-8 flex items-center space-x-4 border-b border-gray-200 pb-2">
+    <nav class="mb-8 flex items-center space-x-4 border-b border-gray-200 pb-4">
         <a
             href="/"
             class="text-lg font-medium text-blue-600 transition-colors duration-200 hover:text-blue-800"
@@ -22,4 +27,4 @@
     </nav>
 </div>
 
-<h1 class="m-2 p-12 text-2xl font-semibold">:3</h1>
+{@render children()}
