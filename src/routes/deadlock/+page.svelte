@@ -1,6 +1,9 @@
 <script lang="ts">
     import Button from '$lib/components/Button.svelte';
-    import { DeadlockDetection } from '$lib/utils/deadlock-detection.class';
+    import {
+        DeadlockDetection,
+        type DeadlockDetectionStep,
+    } from '$lib/utils/deadlock-detection.class';
     import { onMount } from 'svelte';
 
     const INITIAL_RESOURCES = 3;
@@ -17,7 +20,7 @@
 
     let isDeadlocked = $state<boolean | null>(null);
     let deadlockedProcesses = $state<number[]>([]);
-    let deadlockSteps = $state<any[]>([]);
+    let deadlockSteps = $state<DeadlockDetectionStep[]>([]);
     let deadlockStepIndex = $state(0);
     let showingDeadlockSteps = $state(false);
 

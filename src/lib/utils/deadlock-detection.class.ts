@@ -1,3 +1,11 @@
+export type DeadlockDetectionStep = {
+    currentProcess?: number;
+    work: number[];
+    finish: boolean[];
+    action: string;
+    allocated?: number[];
+};
+
 export class DeadlockDetection {
     private allocation: number[][];
     private request: number[][];
@@ -5,13 +13,7 @@ export class DeadlockDetection {
     private numProcesses: number;
     private numResources: number;
 
-    private steps: {
-        currentProcess?: number;
-        work: number[];
-        finish: boolean[];
-        action: string;
-        allocated?: number[];
-    }[] = [];
+    private steps: DeadlockDetectionStep[] = [];
 
     constructor(allocation: number[][], request: number[][], available: number[]) {
         this.allocation = allocation.map((row) => [...row]);
@@ -151,7 +153,7 @@ export class DeadlockDetection {
         };
     }
 
-    public getSteps() {
+    public getSteps(): DeadlockDetectionStep[] {
         return this.steps;
     }
 }

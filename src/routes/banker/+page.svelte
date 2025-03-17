@@ -1,6 +1,6 @@
 <script lang="ts">
     import Button from '$lib/components/Button.svelte';
-    import { Banker } from '$lib/utils/banker.class';
+    import { Banker, type BankerStep } from '$lib/utils/banker.class';
     import { onMount } from 'svelte';
 
     const INITIAL_RESOURCES = 3;
@@ -20,7 +20,7 @@
 
     let isSafe = $state<boolean | null>(null);
     let safeSequence = $state<number[]>([]);
-    let bankerSteps = $state<any[]>([]);
+    let bankerSteps = $state<BankerStep[]>([]);
     let bankerStepIndex = $state(0);
     let showingBankerSteps = $state(false);
 

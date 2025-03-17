@@ -1,3 +1,11 @@
+export type BankerStep = {
+    currentProcess?: number;
+    work: number[];
+    finish: boolean[];
+    action: string;
+    allocated?: number[];
+};
+
 export class Banker {
     private resources: number[];
     private max: number[][];
@@ -7,13 +15,7 @@ export class Banker {
     private numProcesses: number;
     private numResources: number;
 
-    private steps: {
-        currentProcess?: number;
-        work: number[];
-        finish: boolean[];
-        action: string;
-        allocated?: number[];
-    }[] = [];
+    private steps: BankerStep[] = [];
 
     constructor(resources: number[], allocation: number[][], max: number[][]) {
         this.resources = [...resources];
@@ -187,7 +189,7 @@ export class Banker {
         };
     }
 
-    public getSteps() {
+    public getSteps(): BankerStep[] {
         return this.steps;
     }
 }
