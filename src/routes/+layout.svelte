@@ -2,8 +2,6 @@
     import '../app.css';
 
     let { children } = $props();
-
-    export const prerender = true;
 </script>
 
 <div class="container mx-auto p-4">
