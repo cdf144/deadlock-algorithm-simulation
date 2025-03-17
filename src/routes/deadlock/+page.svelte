@@ -1,6 +1,7 @@
 <script lang="ts">
     import Button from '$lib/components/Button.svelte';
     import { DeadlockDetection } from '$lib/utils/deadlock-detection.class';
+    import { onMount } from 'svelte';
 
     const INITIAL_RESOURCES = 3;
     const INITIAL_PROCESSES = 3;
@@ -20,23 +21,25 @@
     let deadlockStepIndex = $state(0);
     let showingDeadlockSteps = $state(false);
 
-    available = Array(INITIAL_RESOURCES).fill(0);
-    allocation = Array(INITIAL_PROCESSES)
-        .fill(0)
-        .map(() => Array(INITIAL_RESOURCES).fill(0));
-    request = Array(INITIAL_PROCESSES)
-        .fill(0)
-        .map(() => Array(INITIAL_RESOURCES).fill(0));
-    resourceNames = Array(INITIAL_RESOURCES)
-        .fill('')
-        .map((_, i) => `R${i}`);
-    processNames = Array(INITIAL_PROCESSES)
-        .fill('')
-        .map((_, i) => `P${i}`);
+    onMount(() => {
+        available = Array(numResources).fill(0);
+        allocation = Array(numProcesses)
+            .fill(0)
+            .map(() => Array(numResources).fill(0));
+        request = Array(numProcesses)
+            .fill(0)
+            .map(() => Array(numResources).fill(0));
+        resourceNames = Array(numResources)
+            .fill('')
+            .map((_, i) => String.fromCharCode(65 + i));
+        processNames = Array(numProcesses)
+            .fill('')
+            .map((_, i) => `P${i}`);
+    });
 
     function addResource() {
         numResources++;
-        resourceNames = [...resourceNames, `R${numResources - 1}`];
+        resourceNames = [...resourceNames, String.fromCharCode(65 + numResources - 1)];
         available = [...available, 0];
         allocation = allocation.map((row) => [...row, 0]);
         request = request.map((row) => [...row, 0]);

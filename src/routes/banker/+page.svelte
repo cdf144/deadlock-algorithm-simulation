@@ -1,6 +1,7 @@
 <script lang="ts">
     import Button from '$lib/components/Button.svelte';
     import { Banker } from '$lib/utils/banker.class';
+    import { onMount } from 'svelte';
 
     const INITIAL_RESOURCES = 3;
     const INITIAL_PROCESSES = 3;
@@ -23,23 +24,25 @@
     let bankerStepIndex = $state(0);
     let showingBankerSteps = $state(false);
 
-    resources = Array(INITIAL_RESOURCES).fill(0);
-    max = Array(INITIAL_PROCESSES)
-        .fill(0)
-        .map(() => Array(INITIAL_RESOURCES).fill(0));
-    allocation = Array(INITIAL_PROCESSES)
-        .fill(0)
-        .map(() => Array(INITIAL_RESOURCES).fill(0));
-    resourceNames = Array(INITIAL_RESOURCES)
-        .fill(0)
-        .map((_, i) => `R${i}`);
-    processNames = Array(INITIAL_RESOURCES)
-        .fill(0)
-        .map((_, i) => `P${i}`);
+    onMount(() => {
+        resources = Array(numResources).fill(0);
+        max = Array(numProcesses)
+            .fill(0)
+            .map(() => Array(numResources).fill(0));
+        allocation = Array(numProcesses)
+            .fill(0)
+            .map(() => Array(numResources).fill(0));
+        resourceNames = Array(numResources)
+            .fill(0)
+            .map((_, i) => String.fromCharCode(65 + i));
+        processNames = Array(numResources)
+            .fill(0)
+            .map((_, i) => `P${i}`);
+    });
 
     function addResource() {
         numResources++;
-        resourceNames = [...resourceNames, `R${numResources - 1}`];
+        resourceNames = [...resourceNames, String.fromCharCode(65 + numResources - 1)];
         resources = [...resources, 0];
         max = max.map((row) => [...row, 0]);
         allocation = allocation.map((row) => [...row, 0]);
