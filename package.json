@@ -2,7 +2,7 @@
     "name": "deadlock-algorithm-simulation",
     "private": true,
     "version": "0.0.1",
-    "description": "A Svelte app for simulating banker and deadlock detection algorithms",
+    "description": "A web app for simulating banker and deadlock detection algorithms",
     "license": "GPL-3.0-or-later",
     "author": "cdf144",
     "type": "module",
