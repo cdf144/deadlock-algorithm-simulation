@@ -1,38 +1,38 @@
-# sv
+# Deadlock Algorithm Simulation
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+![Svelte](https://img.shields.io/badge/svelte-%23f1413d.svg?style=for-the-badge&logo=svelte&logoColor=white)
+![PNPM](https://img.shields.io/badge/pnpm-%234a4a4a.svg?style=for-the-badge&logo=pnpm&logoColor=f69220)
 
-## Creating a project
+[![Run Tests](https://github.com/cdf144/deadlock-algorithm-simulation/actions/workflows/tests.yml/badge.svg)](https://github.com/cdf144/deadlock-algorithm-simulation/actions/workflows/tests.yml)
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Dependencies
 
-```bash
-# create a new project in the current directory
-npx sv create
+This project uses `pnpm` as package manager. Consult the [pnpm docs](https://pnpm.io/installation) help on installation.
 
-# create a new project in my-app
-npx sv create my-app
+> [!NOTE]
+>
+> For Windows, I recommend installing `pnpm` [using `npm`](https://pnpm.io/installation#using-npm) for a smoother experience.
+
+```sh
+$ pnpm i --frozen-lockfile
 ```
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+## Running and Developing
 
 ```bash
-npm run dev
+$ pnpm dev
 
 # or start the server and open the app in a new browser tab
-npm run dev -- --open
+$ pnpm dev --open
 ```
 
 ## Building
 
-To create a production version of your app:
-
 ```bash
-npm run build
-```
+$ pnpm build
 
-You can preview the production build with `npm run preview`.
+# then you can preview the production build with
+$ pnpm preview
+```
 
 > To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
