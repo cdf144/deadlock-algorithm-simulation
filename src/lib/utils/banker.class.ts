@@ -61,6 +61,8 @@ export class Banker {
                         action: `Complete P${i}`,
                         allocated: [...this.allocation[i]],
                     });
+
+                    break;
                 }
             }
 
@@ -148,6 +150,8 @@ export class Banker {
                         action: `Complete P${i}`,
                         allocated: [...this.allocation[i]],
                     });
+
+                    break;
                 }
             }
 

@@ -57,6 +57,8 @@ export class DeadlockDetection {
                         action: `Process ${i} completed`,
                         allocated: this.allocation[i],
                     });
+
+                    break;
                 }
             }
 
@@ -114,6 +116,8 @@ export class DeadlockDetection {
                         action: `Process ${i} completed`,
                         allocated: this.allocation[i],
                     });
+
+                    break;
                 }
             }
 
