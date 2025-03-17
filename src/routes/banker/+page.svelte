@@ -1,6 +1,6 @@
 <script lang="ts">
     import Button from '$lib/components/Button.svelte';
-    import { Banker, type BankerStep } from '$lib/utils/banker.class';
+    import { Banker, type BankerStep } from '$lib/utils/classes/banker.class';
     import { onMount } from 'svelte';
 
     const INITIAL_RESOURCES = 3;

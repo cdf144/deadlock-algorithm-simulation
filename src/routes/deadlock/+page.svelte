@@ -3,7 +3,7 @@
     import {
         DeadlockDetection,
         type DeadlockDetectionStep,
-    } from '$lib/utils/deadlock-detection.class';
+    } from '$lib/utils/classes/deadlock-detection.class';
     import { onMount } from 'svelte';
 
     const INITIAL_RESOURCES = 3;
