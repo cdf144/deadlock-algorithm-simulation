@@ -35,5 +35,10 @@ export default ts.config(
                 svelteConfig,
             },
         },
+
+        rules: {
+            'svelte/require-each-key': 'warn',
+            '@typescript-eslint/no-unused-vars': 'warn',
+        },
     },
 );
