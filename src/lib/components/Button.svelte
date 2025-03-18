@@ -1,4 +1,6 @@
 <script lang="ts">
+    import type { Snippet } from 'svelte';
+
     type Color = 'blue' | 'green' | 'emerald' | 'red' | 'yellow' | 'indigo' | 'purple' | 'pink';
     type Size = 'sm' | 'md' | 'lg';
 
@@ -13,9 +15,9 @@
         color?: Color;
         size?: Size;
         onClick?: () => void;
-        children: any;
+        children: Snippet;
         disabled?: boolean;
-        [key: string]: any;
+        [key: string]: unknown;
     } = $props();
 
     const colorClasses = {

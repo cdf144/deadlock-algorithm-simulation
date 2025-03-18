@@ -191,7 +191,7 @@
             <div class="mb-4">
                 <h3 class="mb-2 font-medium">Available</h3>
                 <div class="flex flex-wrap items-center">
-                    {#each available as value, i}
+                    {#each available as value, i (i)}
                         <div class="mr-4 mb-2">
                             <label for="available-{i}" class="mr-1 font-medium">
                                 {resourceNames[i]}:
@@ -269,18 +269,18 @@
                             <thead>
                                 <tr class="bg-gray-100">
                                     <th class="border border-gray-300 px-4 py-2">Process</th>
-                                    {#each resourceNames as name}
+                                    {#each resourceNames as name (name)}
                                         <th class="border border-gray-300 px-4 py-2">{name}</th>
                                     {/each}
                                 </tr>
                             </thead>
                             <tbody>
-                                {#each allocation as row, i}
+                                {#each allocation as row, i (i)}
                                     <tr>
                                         <td class="border border-gray-300 px-4 py-2 font-medium">
                                             {processNames[i]}
                                         </td>
-                                        {#each row as cell, j}
+                                        {#each row as cell, j (j)}
                                             <td class="border border-gray-300 p-1">
                                                 <input
                                                     type="number"
@@ -311,18 +311,18 @@
                             <thead>
                                 <tr class="bg-gray-100">
                                     <th class="border border-gray-300 px-4 py-2">Process</th>
-                                    {#each resourceNames as name}
+                                    {#each resourceNames as name (name)}
                                         <th class="border border-gray-300 px-4 py-2">{name}</th>
                                     {/each}
                                 </tr>
                             </thead>
                             <tbody>
-                                {#each request as row, i}
+                                {#each request as row, i (i)}
                                     <tr>
                                         <td class="border border-gray-300 px-4 py-2 font-medium">
                                             {processNames[i]}
                                         </td>
-                                        {#each row as cell, j}
+                                        {#each row as cell, j (j)}
                                             <td class="border border-gray-300 p-1">
                                                 <input
                                                     type="number"
@@ -420,7 +420,7 @@
                                             Available (Work):
                                         </p>
                                         <div class="flex flex-wrap items-center">
-                                            {#each step.work as amount, i}
+                                            {#each step.work as amount, i (i)}
                                                 <div
                                                     class="mr-2 mb-2 rounded-md bg-blue-100 px-3 py-1 text-blue-800"
                                                 >
@@ -436,7 +436,7 @@
                                             Process Status:
                                         </p>
                                         <div class="flex flex-wrap items-center">
-                                            {#each step.finish as isFinished, i}
+                                            {#each step.finish as isFinished, i (i)}
                                                 <div
                                                     class="mr-2 mb-2 rounded-md px-3 py-1 {i ===
                                                     step.currentProcess
@@ -460,7 +460,7 @@
                                             Resources Released:
                                         </p>
                                         <div class="flex flex-wrap items-center">
-                                            {#each step.allocated as amount, i}
+                                            {#each step.allocated as amount, i (i)}
                                                 <div
                                                     class="mr-2 mb-2 rounded-md bg-green-100 px-3 py-1 text-green-800"
                                                 >
